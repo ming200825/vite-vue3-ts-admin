@@ -1,13 +1,13 @@
-$menuText:#bfcbd9;
+$menuText:#303133;
 // 背景
-$menuBg:#20222a;
+$menuBg:#fff;
 // 激活的背景色
-$menuActiveBg:#009688;
-$subMenuActiveText:#fff;
-$menuHover:#263445;
-$subMenuBg:#1f2d3d;
-$subMenuHover:#001528;
-$sideBarWidth: 210px;
+$menuActiveBg:#2d8cf0;
+$subMenuActiveText:#303133;
+$menuHover:#fff;
+$subMenuBg:#fff;
+$subMenuHover:#fff;
+$sideBarWidth: 219px;
 
 :export {
   menuText: $menuText;

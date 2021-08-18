@@ -12,8 +12,6 @@
         <!-- 主页面 -->
         <el-main>
           <app-main />
-
-          <el-button type="primary">更新</el-button>
         </el-main>
       </el-container>
     </el-container>
@@ -22,6 +20,7 @@
   
 <script lang="ts" setup>
 import Sidebar from '@/layout/components/Sidebar.vue'
+import AppMain from '@/layout/components/AppMain.vue'
 </script>
 <style lang="scss" scoped>
 .app-wrapper {
@@ -47,6 +46,7 @@ import Sidebar from '@/layout/components/Sidebar.vue'
   background-color: #e9eef3;
   color: #333;
   text-align: center;
+  padding: 10px;
   height: calc(100vh - 60px);
 }
 </style>

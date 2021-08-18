@@ -2,7 +2,14 @@
     <el-row class="slidebar">
         <el-col class="sidebar-container">
             <el-scrollbar wrap-class="scrollbar-wrapper">
-                <el-menu class="el-menu-vertical-demo" :router="true" >
+                <el-menu
+                    class="el-menu-vertical-demo"
+                    :router="true"
+                    :background-color="theme.menuBg"
+                    :text-color="theme.menuText"
+                    :active-text-color="theme.suMenuActiveText"
+                    :default-active="activeMenu"
+                >
                     <div v-for="(item, i) in routes" :key="i">
                         <el-submenu v-if="item.children" :index="item.path" class="hide-tile">
                             <template #title>
@@ -25,15 +32,17 @@
         </el-col>
     </el-row>
 </template>
+
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
 import { mapGetters, useStore } from 'vuex'
+import { useRoute } from 'vue-router';
 import theme2 from '@/assets/css/theme.scss'
 const store = useStore();
+const route = useRoute();
 
 
-
-const theme = computed(() => {
+const theme:any = computed(() => {
     return theme2
 })
 
@@ -43,6 +52,14 @@ const routes = computed(() => {
     console.log(store.getters.routes);
     //return store.getters.routes
     return store.getters.routes
+});
+
+const activeMenu = computed(() => {
+    const { meta, path } = route;
+    if (meta.activeMenu) {
+        return meta.activeMenu;
+    }
+    return path;
 });
 
 
@@ -137,7 +154,7 @@ const routes = computed(() => {
         & .nest-menu .el-submenu > .el-submenu__title,
         & .el-submenu .el-menu-item {
             min-width: $sideBarWidth !important;
-            background-color: #191a23 !important;
+            background-color: #fff !important;
 
             &:hover {
                 color: $subMenuActiveText !important;
