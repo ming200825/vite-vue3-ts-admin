@@ -56,7 +56,7 @@ const multipleTable = ref<HTMLElement | null>(null)
 
 
 
-function toggleSelection(rows: any[]) {
+function toggleSelection(rows?: any[]) {
   const multipleTableRef = unref(multipleTable as any)
   if (rows) {
     rows.forEach(row => {
